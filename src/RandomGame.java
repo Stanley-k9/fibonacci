@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class random {
+public class RandomGame {
 
     public static void main(String[] args) {
 
@@ -26,8 +26,7 @@ public class random {
             }
 
             if ( enteredInput < 1 || enteredInput > 10) {
-                System.out.println("now you adding numbers with that range try again boss");
-                System.out.println("\n");
+                System.out.println("did you not see i said from 1 to 10 you avo");
                 continue;
             }
 
@@ -41,16 +40,24 @@ public class random {
             }
 
             System.out.println("The System picked: " + systemNumber + " you have failed");
-            System.out.println("Try again?");
-            System.out.println("Yes to retry and No to exit the game");
-            final var userYesNo = scanner.nextLine();
 
-            if (userYesNo.equalsIgnoreCase("No")) {
-                System.out.println("I see you done you little mango");
-                break;
-            } else if (!userYesNo.equalsIgnoreCase("Yes")) {
-                System.out.println("\n");
-                System.out.println("what the f*ck did you just enter? try that again");
+            String userYesNo;
+
+            while (true) {
+                System.out.println("Try again?");
+                System.out.println("Yes to retry and No to exit the game");
+                userYesNo = scanner.nextLine();
+
+                if (userYesNo.equalsIgnoreCase("No")) {
+                    System.out.println("I see you done you little mango");
+                    scanner.close();
+                    return;
+                } else if (userYesNo.equalsIgnoreCase("Yes")) {
+                    break;
+                } else {
+                    System.out.println("\n");
+                    System.out.println("what the f*ck did you just enter? try that again");
+                }
             }
         }
         scanner.close();
