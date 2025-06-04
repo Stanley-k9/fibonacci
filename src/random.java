@@ -9,7 +9,7 @@ public class random {
         final var scanner = new Scanner(System.in);
 
 
-        for (int i = 0; i <= 10; i++) {
+        while (true) {
             System.out.println("Guess what the system might output");
             System.out.println("========================");
             System.out.println("\n");
@@ -25,13 +25,19 @@ public class random {
                 continue;
             }
 
+            if ( enteredInput < 1 || enteredInput > 10) {
+                System.out.println("now you adding numbers with that range try again boss");
+                System.out.println("\n");
+                continue;
+            }
+
             System.out.println("The number you picked is: " + enteredInput);
 
             final var systemNumber = randomNumber.nextInt(10) + 1;
 
             if (enteredInput == systemNumber) {
                 System.out.println("Congratulations! You guessed it right.");
-                return;
+                break;
             }
 
             System.out.println("The System picked: " + systemNumber + " you have failed");
@@ -40,7 +46,8 @@ public class random {
             final var userYesNo = scanner.nextLine();
 
             if (userYesNo.equalsIgnoreCase("No")) {
-                return;
+                System.out.println("I see you done you little mango");
+                break;
             } else if (!userYesNo.equalsIgnoreCase("Yes")) {
                 System.out.println("\n");
                 System.out.println("what the f*ck did you just enter? try that again");
